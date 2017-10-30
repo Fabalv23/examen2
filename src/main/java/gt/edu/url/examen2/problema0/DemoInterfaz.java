@@ -5,10 +5,15 @@
  */
 package gt.edu.url.examen2.problema0;
 
+import gt.edu.url.examen2.problema2.List;
+
 /**
  *
  * @author tuxtor
  */
 public interface DemoInterfaz {
     public String saludarClase(String nombre);
+    public List<Integer> crearDemoLista();
+    
+
 }

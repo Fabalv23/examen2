@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 
+
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -13,7 +14,9 @@ import static org.junit.Assert.*;
  */
 public class DemoTest {
     
+    
     public DemoTest() {
+        
     }
 
     // TODO add test methods here.

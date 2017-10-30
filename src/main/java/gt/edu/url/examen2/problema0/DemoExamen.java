@@ -5,11 +5,17 @@
  */
 package gt.edu.url.examen2.problema0;
 
+import gt.edu.url.examen2.problema2.List;
+
 /**
  *
  * @author tuxtor
  */
 public class DemoExamen {
+    
+    //DemoInterfaz demo = new DemoExamen();
+    
+      
     
     
     
