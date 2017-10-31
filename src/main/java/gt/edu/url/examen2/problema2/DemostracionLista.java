@@ -15,7 +15,9 @@ public class DemostracionLista<E> implements DemoList  {
     
     @Override
     public List<Integer> crearDemoLista() {
+        //creo con la interfaz de list una lista para manipular los numeros
         List<Integer> Problema2 = new ArrayList<>();
+        //Agregando
         Problema2.add(0,4);
         Problema2.add(0,3);
         Problema2.add(0,2);
@@ -27,7 +29,7 @@ public class DemostracionLista<E> implements DemoList  {
         
         
         
-        return Problema2;
+        return Problema2;       //retornar la la lista de enteros
         
     }
 

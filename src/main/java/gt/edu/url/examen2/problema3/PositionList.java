@@ -10,7 +10,10 @@ package gt.edu.url.examen2.problema3;
  * @author fabia
  */
 public class PositionList<E> implements PositionalList<E> {
-
+/**
+ * Nodo para crear la lista posicional
+ * @param <E> 
+ */
     private static class Nodo<E> implements Position<E> {
 		private E elemento;
 		private Nodo<E> previo;// Anterior
@@ -62,25 +65,25 @@ public class PositionList<E> implements PositionalList<E> {
         
         private Nodo<E> validar(Position<E> p) throws IllegalArgumentException {
 		if (!(p instanceof Nodo))
-			throw new IllegalArgumentException("La posicion P es inexistente");
+			throw new IllegalArgumentException("La posicion P es inexistente");     //Cuando no encuentra la posicion
 		Nodo<E> node = (Nodo<E>) p; // safe cast
 		if (node.getNext() == null)
-			throw new IllegalArgumentException("P dejo de existir");
+			throw new IllegalArgumentException("P dejo de existir");            // no encuntra la posicion
 		return node;
 	}
         
-        private Position<E> position(Nodo<E> nodo) {
+        private Position<E> position(Nodo<E> nodo) {        //obtener la posicion
 		if (nodo == header || nodo == trailer)
 			return null; // do not expose user to the sentinels
 		return nodo;
 	}
                
-        
+        //Devuelve la cantidad
     @Override
     public int size() {
        return tamanio;
     }
-
+//Esta vacia o no
     @Override
     public boolean isEmpty() {
        return tamanio==0;
@@ -137,7 +140,7 @@ public class PositionList<E> implements PositionalList<E> {
         Nodo<E> n2 = validar(p);
 		return addBetween(e, n2, n2.getNext());
     }
-
+//establecer la posicion nueva
     @Override
     public E set(Position<E> p, E e) throws IllegalArgumentException {
                 Nodo<E> n1 = validar(p);
@@ -145,7 +148,12 @@ public class PositionList<E> implements PositionalList<E> {
 		n1.setElement(e);
 		return re;
     }
-
+/**
+ * remover la posicion que le de al usuario
+ * @param p
+ * @return
+ * @throws IllegalArgumentException 
+ */
     @Override
     public E remove(Position<E> p) throws IllegalArgumentException {
        Nodo<E> n2 = validar(p);
@@ -161,14 +169,19 @@ public class PositionList<E> implements PositionalList<E> {
 		return res;
     }
 
+    /**
+     * Cambia posiciones y nodos
+     * @param p
+     * @param q 
+     */
     @Override
     public void swap(Position<E> p, Position<E> q) {
         
-     E temp = null;
+     E temp = null;     //obtendra el valor a cambiar en el segundo
         
      
-      temp= set(p,q.getElement());
-      set(q,temp);
+      temp= set(p,q.getElement());      //Establece el el valor obtenido en temp
+      set(q,temp);      //poner en la segunda posicion el valor temp
              
     }
     

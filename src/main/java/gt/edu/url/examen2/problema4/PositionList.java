@@ -15,23 +15,27 @@ package gt.edu.url.examen2.problema4;
  * @author fabia
  */
 public class PositionList<E> implements PositionalList<E> {
-
+/**
+ * pasa el index que va a recorrer la position list
+ * @param i
+ * @return 
+ */
     @Override
     public Position<E> positionAtIndex(int i) {
-       int cont = 0;
+       //tira error si el tamanio es mayor
         if (i>tamanio) {
             throw new IndexOutOfBoundsException();
         }else if(i==0){
-            return first();
+            return first(); //obtiene el primer valor
         }else{
       
-            Nodo<E> pivote=header.getNext();
+            Nodo<E> pivote=header.getNext();    //Nodo para recorrer la lista posicional
             
-            for (int j = 0; j <= i-1; j++) {
+            for (int j = 0; j <= i-1; j++) {            //cambiando cada posicion
                 pivote=pivote.getNext();
             }
             
-            return position(pivote);
+            return position(pivote);        //retorna el valor
             
             
         }

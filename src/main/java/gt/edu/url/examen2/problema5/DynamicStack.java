@@ -14,7 +14,10 @@ public class DynamicStack<E> implements Stack<E> {
    
     private E[] valor;
     private int tamanio = 0;
-    
+    /**
+     * NODO PARA NAVEGAR
+     * @param <E> 
+     */
     private static class Nodo<E> {
 		private E elemento;
 		private Nodo<E> previo;//Anterior
@@ -51,12 +54,20 @@ public class DynamicStack<E> implements Stack<E> {
 	private Nodo<E> header = null;//Referencia
 	private Nodo<E> trailer = null;
 	
+        /**
+         * crear el constructor
+         */
         public DynamicStack() {
 		header = new Nodo<>(null, null, null);
 		trailer = new Nodo<>(null, header, null);
 		header.setNext(trailer);
 	}
-
+        /**
+         * agregar entre los indicados
+         * @param e
+         * @param predecessor
+         * @param successor 
+         */
         private void addBetween(E e, Nodo<E> predecessor, Nodo<E> successor) {
 		Nodo<E> newest = new Nodo<>(e, predecessor, successor);
 		predecessor.setNext(newest);
@@ -88,12 +99,18 @@ public class DynamicStack<E> implements Stack<E> {
     public boolean isEmpty() {
         return tamanio==0;
     }
-
+/**
+ * insertar en pila
+ * @param e 
+ */
     @Override
     public void push(E e) {
        addBetween(e, trailer.getPrev(), trailer);
     }
-
+/**
+ * obetener el ultimo
+ * @return 
+ */
     public E last() {
 		if (isEmpty())
 			return null;
@@ -105,12 +122,18 @@ public class DynamicStack<E> implements Stack<E> {
 			return null;
 		return remove(trailer.getPrev());
 	}
-    
+  /**
+   * obtener el ultimo de la pila
+   * @return 
+   */  
     @Override
     public E top() {
        return removeLast();
     }
-
+/**
+ * sacar el ultimo de la pila
+ * @return 
+ */
     @Override
     public E pop() {
         return removeLast();

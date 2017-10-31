@@ -17,11 +17,11 @@ public class Problema2 {
     public static void main(String[] args) {
         // TODO code application logic here
         
-            
+        //crear el objeto para poder usar el metodo list     
         DemostracionLista d1 = new DemostracionLista();
-        List<Integer> temp = d1.crearDemoLista();
+        List<Integer> temp = d1.crearDemoLista();       //Lista para remover
       
-        
+        //imprimir 8,2,6,5,7,3,1,4
         do{
             System.out.println(temp.remove(0));
         }while(!temp.isEmpty());

@@ -12,7 +12,7 @@ package gt.edu.url.examen2.problema2;
 public class ArrayList<E> implements List<E> {
     
     
-    public static final int capacidad = 1;
+    public static final int capacidad = 1;  //Capacidad a redimensionar 1
     private E[] valor;
     private int tamanio = 0;
     
@@ -26,13 +26,21 @@ public class ArrayList<E> implements List<E> {
     public ArrayList(int capacidad) {
         valor = (E[]) new Object[capacidad];
     }
-
+    /**
+     * valida una posicion para ver si si esta disponible
+     * @param i
+     * @param n 
+     */
     protected void validar(int i, int n) {
         if (i < 0 || i >= n) {
             throw new IndexOutOfBoundsException("Illegal index: " + i);
         }
     }
-
+    
+    /**
+     * Para duplicar la cantidad de la capacidad
+     * @param capacidad 
+     */
     protected void redimensionar(int capacidad) {
         E[] temp = (E[]) new Object[capacidad];
         for (int k = 0; k < tamanio; k++)
@@ -40,23 +48,38 @@ public class ArrayList<E> implements List<E> {
             valor = temp;
         
     }
-
+/**
+ * tamaño
+ * @return 
+ */
     @Override
     public int size() {
         return tamanio;
     }
-
+/**
+ * esta vacio o no
+ * @return 
+ */
     @Override
     public boolean isEmpty() {
         return tamanio == 0;
     }
-
+/**
+ * obtiene el valor
+ * @param i
+ * @return 
+ */
     @Override
     public E get(int i) {
         validar(i, tamanio);
         return valor[i];
     }
-
+/**
+ * poner los valores en ciertas posiciones
+ * @param i
+ * @param e
+ * @return 
+ */
     @Override
     public E set(int i, E e) {
         validar(i, tamanio);
@@ -64,7 +87,11 @@ public class ArrayList<E> implements List<E> {
         valor[i] = e;
         return temp;
     }
-
+/**
+ * agregar un nuevo elemento
+ * @param i
+ * @param e 
+ */
     @Override
     public void add(int i, E e) {
       validar(i, tamanio + 1);
@@ -75,7 +102,12 @@ public class ArrayList<E> implements List<E> {
 		valor[i] = e; 
 		tamanio++;
     }
-
+/**
+ * remover el valor en ciertas posiciones
+ * @param i
+ * @return
+ * @throws IndexOutOfBoundsException 
+ */
     @Override
     public E remove(int i) throws IndexOutOfBoundsException {
         	validar(i, tamanio);

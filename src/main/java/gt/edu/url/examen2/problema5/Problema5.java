@@ -16,6 +16,7 @@ public class Problema5 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        //crear una pila dinamica
         DynamicStack<Integer> d1 = new DynamicStack<>();
         d1.push(15);
         d1.push(25);
@@ -25,6 +26,7 @@ public class Problema5 {
         d1.push(65);
         d1.push(75);
         
+        //imprime la pila, con la caracteristica de una pila
         do{
             System.out.println(d1.pop());
         }while(!d1.isEmpty());
